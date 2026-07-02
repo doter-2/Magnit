@@ -1,0 +1,280 @@
+/* Главный контейнер секции */
+.cases-hub-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Фоновое изображение (яблоки) */
+.cases-hub-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* Контент поверх фона */
+.cases-hub-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Маленький подзаголовок */
+.hub-subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+
+/* Главный большой заголовок */
+.hub-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 60px 0;
+  max-width: 950px;
+  letter-spacing: -0.5px;
+}
+
+/* Сетка для 4 карточек */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+/* Карточка элемента */
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Обертка для создания идеального круга */
+.circle-wrapper {
+  position: relative;
+  width: 230px;
+  height: 230px;
+  margin-bottom: 24px;
+}
+
+/* Сама картинка внутри круга */
+.circle-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Белая обводка как на макете */
+.circle-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  pointer-events: none; /* Чтобы не мешало кликам */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Текст под кругами */
+.card-text {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0;
+  padding: 0 10px;
+  max-width: 240px;
+}
+
+/* ==========================================================================
+   Стили для Попапа и Слайдера (Твоя логика)
+   ========================================================================== */
+
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  z-index: 110;
+}
+
+.popup-close-btn:hover {
+  opacity: 0.7;
+}
+
+.popup-slider-container {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.popup-slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.popup-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-slide-gradient {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 100%);
+  z-index: 1;
+}
+
+.popup-slide-text {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.popup-slide-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.popup-slide-text h2 {
+  font-size: 2rem;
+  margin: 0 0 12px 0;
+}
+
+.popup-slide-text p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Точки переключения слайдов */
+.popup-dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.popup-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.popup-dot:hover {
+  transform: scale(1.2);
+}
+
+.popup-dot.active {
+  background: #ffffff;
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   Адаптивная верстка (Responsive)
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .hub-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  .hub-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cases-hub-container {
+    padding: 60px 20px;
+  }
+  .hub-grid {
+    grid-template-columns: 1fr;
+  }
+  .hub-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  .circle-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+  .popup-slider-container {
+    height: 350px;
+  }
+  .popup-slide-text h2 {
+    font-size: 1.5rem;
+  }
+}

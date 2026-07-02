@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body, html, #root {
+  background-color: #ffffff !important;
+  color: #293038 !important;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ВСЕ СЕКЦИИ */
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* анимация (оставил, если используешь где-то) */
+@keyframes scrollDot {
+  0%   { transform: translateY(0); opacity: 1; }
+  60%  { transform: translateY(14px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+} 
